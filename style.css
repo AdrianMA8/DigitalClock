@@ -1,0 +1,52 @@
+/* Fondo general */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(132deg, #1e3c72, #5f759c);
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Caja del reloj */
+.clock {
+    font-size: 5rem;
+    margin-bottom: 20px 40px;
+    background:  rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+    transition: 0.3s ease;
+}
+
+/* Animación al pasar el ratón */
+.clock:hover{
+    transform: scale(1.05);
+}
+
+/*Boton cambio formato*/
+button {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    background: #ff6f61;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, transform 0.2 ease;
+}
+
+button:hover{
+    background: #ff3b2e;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
