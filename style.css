@@ -1,5 +1,5 @@
 /* Fondo general */
-body {
+/* body {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,10 +9,10 @@ body {
     background: linear-gradient(132deg, #1e3c72, #5f759c);
     color: #fff;
     font-family: 'Courier New', Courier, monospace;
-}
+} */
 
 /* Caja del reloj */
-.clock {
+/* .clock {
     font-size: 5rem;
     margin-bottom: 20px 40px;
     background:  rgba(0, 0, 0, 0.4);
@@ -21,15 +21,15 @@ body {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     margin-bottom: 30px;
     transition: 0.3s ease;
-}
+} */
 
 /* Animación al pasar el ratón */
-.clock:hover{
+/* .clock:hover{
     transform: scale(1.05);
-}
+} */
 
 /*Boton cambio formato*/
-button {
+/* button {
     padding: 12px 25px;
     font-size: 1.1rem;
     font-weight: bold;
@@ -40,13 +40,374 @@ button {
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: background 0.3s ease, transform 0.2 ease;
-}
+} */
 
-button:hover{
+/* button:hover{
     background: #ff3b2e;
     transform: translateY(-2px);
 }
 
 button:active {
     transform: translateY(1px);
+} */
+
+/* =========================================================
+   ☢️  CRT TERMINAL CLOCK — INSANE MODE
+   "SYSTEM STATUS: ALIVE"
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    margin: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #10251b 0%,
+            #07110c 35%,
+            #020604 75%,
+            #000000 100%
+        );
+
+    color: #7dff9b;
+
+    font-family: 'Share Tech Mono', 'Courier New', monospace;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   GRID FUTURISTA
+========================================================= */
+
+body::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(0, 255, 100, 0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(0, 255, 100, 0.035) 1px,
+            transparent 1px
+        );
+
+    background-size: 40px 40px;
+
+    pointer-events: none;
+
+    animation: gridMove 12s linear infinite;
+}
+
+
+@keyframes gridMove {
+
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 40px;
+    }
+}
+
+
+/* =========================================================
+   VIÑETA
+========================================================= */
+
+body::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle,
+            transparent 45%,
+            rgba(0, 0, 0, 0.65) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   RELOJ
+========================================================= */
+
+.clock {
+
+    position: relative;
+
+    font-size: 6rem;
+
+    letter-spacing: 10px;
+
+    padding: 45px 65px;
+
+    color: #7dff9b;
+
+    background:
+        linear-gradient(
+            rgba(10, 30, 18, 0.95),
+            rgba(2, 10, 6, 0.98)
+        );
+
+    border: 4px solid #31583d;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+
+    /* CARCASA */
+
+    box-shadow:
+
+        /* Borde */
+        0 0 0 3px #101b14,
+
+        /* CRT glow */
+        0 0 10px #3cff68,
+        0 0 30px rgba(60, 255, 104, 0.35),
+        0 0 70px rgba(60, 255, 104, 0.15),
+
+        /* Interior */
+        inset 0 0 40px rgba(0, 255, 100, 0.08),
+
+        /* Hardware shadow */
+        15px 18px 0 #020503,
+        20px 25px 30px rgba(0, 0, 0, 0.8);
+
+
+    /* TEXTO CRT */
+
+    text-shadow:
+
+        0 0 4px #7dff9b,
+        0 0 10px #3cff68,
+        0 0 25px #3cff68;
+
+
+    transition: 0.25s ease;
+
+    animation:
+        flicker 5s infinite;
+}
+
+
+/* =========================================================
+   SCANLINES SOBRE EL RELOJ
+========================================================= */
+
+.clock::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,0.035),
+            rgba(255,255,255,0.035) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    pointer-events: none;
+
+    border-radius: 5px;
+
+    mix-blend-mode: screen;
+}
+
+
+/* =========================================================
+   TEXTO SUPERIOR
+========================================================= */
+
+.clock::after {
+
+    content: "SYSTEM TIME // SECTOR 07 // ONLINE";
+
+    position: absolute;
+
+    top: 8px;
+
+    left: 0;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 3px;
+
+    color: #3cff68;
+
+    opacity: 0.65;
+
+    text-shadow: none;
+}
+
+
+/* =========================================================
+   CRT FLICKER
+========================================================= */
+
+@keyframes flicker {
+
+    0%,
+    18%,
+    22%,
+    63%,
+    64%,
+    65%,
+    100% {
+        opacity: 1;
+    }
+
+    19%,
+    21%,
+    62%,
+    63.5% {
+        opacity: 0.92;
+    }
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.clock:hover {
+
+    transform:
+        scale(1.04)
+        skewX(-1deg);
+
+    color: #b5ffc5;
+
+    border-color: #7dff9b;
+
+    box-shadow:
+
+        0 0 0 3px #101b14,
+
+        0 0 15px #3cff68,
+        0 0 40px #3cff68,
+        0 0 90px rgba(60, 255, 104, 0.35),
+
+        inset 0 0 50px rgba(0, 255, 100, 0.15),
+
+        15px 18px 0 #020503,
+        20px 25px 35px rgba(0, 0, 0, 0.9);
+
+
+    text-shadow:
+
+        0 0 5px #b5ffc5,
+        0 0 15px #3cff68,
+        0 0 35px #3cff68;
+}
+
+
+/* =========================================================
+   BOTÓN
+========================================================= */
+
+button {
+
+    margin-top: 35px;
+
+    padding: 14px 30px;
+
+    font-family: 'Share Tech Mono', monospace;
+
+    font-size: 1rem;
+
+    letter-spacing: 3px;
+
+    color: #7dff9b;
+
+    background: #07110c;
+
+    border: 2px solid #3cff68;
+
+    border-radius: 3px;
+
+    cursor: pointer;
+
+
+    box-shadow:
+
+        0 0 5px #3cff68,
+        0 0 15px rgba(60, 255, 104, 0.4),
+
+        inset 0 0 10px rgba(60, 255, 104, 0.08);
+
+
+    text-shadow:
+
+        0 0 5px #3cff68;
+
+
+    transition: 0.2s ease;
+}
+
+
+/* =========================================================
+   BOTÓN HOVER
+========================================================= */
+
+button:hover {
+
+    color: #020604;
+
+    background: #3cff68;
+
+    box-shadow:
+
+        0 0 10px #3cff68,
+        0 0 25px #3cff68,
+        0 0 50px rgba(60, 255, 104, 0.5);
+}
+
+
+/* =========================================================
+   BOTÓN ACTIVE
+========================================================= */
+
+button:active {
+
+    transform: translateY(3px);
+
+    box-shadow:
+
+        0 0 5px #3cff68;
 }
