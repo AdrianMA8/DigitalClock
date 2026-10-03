@@ -51,17 +51,17 @@ button:active {
     transform: translateY(1px);
 } */
 
-/* =========================================================
-   ☢️  CRT TERMINAL CLOCK — INSANE MODE
-   "SYSTEM STATUS: ALIVE"
-========================================================= */
+/* =====================================================
+   🌸 ANIME NEON CLOCK
+   Retro anime / Tokyo night / 90s aesthetic
+===================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap');
 
 
-/* =========================================================
-   BODY
-========================================================= */
+/* =====================================================
+   FONDO
+===================================================== */
 
 body {
     display: flex;
@@ -72,342 +72,325 @@ body {
     height: 100vh;
     margin: 0;
 
-    background:
-        radial-gradient(
-            circle at center,
-            #10251b 0%,
-            #07110c 35%,
-            #020604 75%,
-            #000000 100%
-        );
+    font-family: 'Orbitron', sans-serif;
 
-    color: #7dff9b;
-
-    font-family: 'Share Tech Mono', 'Courier New', monospace;
+    color: #ffffff;
 
     overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #34205c 0%,
+            #191338 35%,
+            #09091b 70%,
+            #03030a 100%
+        );
 }
 
 
-/* =========================================================
-   GRID FUTURISTA
-========================================================= */
+/* =====================================================
+   LUNA / RESPLANDOR
+===================================================== */
 
 body::before {
     content: "";
 
     position: absolute;
-    inset: 0;
 
-    background:
-        linear-gradient(
-            rgba(0, 255, 100, 0.035) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(0, 255, 100, 0.035) 1px,
-            transparent 1px
-        );
+    width: 450px;
+    height: 450px;
 
-    background-size: 40px 40px;
-
-    pointer-events: none;
-
-    animation: gridMove 12s linear infinite;
-}
-
-
-@keyframes gridMove {
-
-    from {
-        background-position: 0 0;
-    }
-
-    to {
-        background-position: 0 40px;
-    }
-}
-
-
-/* =========================================================
-   VIÑETA
-========================================================= */
-
-body::after {
-    content: "";
-
-    position: absolute;
-    inset: 0;
+    border-radius: 50%;
 
     background:
         radial-gradient(
             circle,
-            transparent 45%,
-            rgba(0, 0, 0, 0.65) 100%
+            rgba(255, 150, 220, 0.18),
+            rgba(100, 80, 255, 0.08) 45%,
+            transparent 70%
         );
+
+    filter: blur(10px);
 
     pointer-events: none;
 }
 
 
-/* =========================================================
-   RELOJ
-========================================================= */
+/* =====================================================
+   ESTRELLAS
+===================================================== */
 
-.clock {
-
-    position: relative;
-
-    font-size: 6rem;
-
-    letter-spacing: 10px;
-
-    padding: 45px 65px;
-
-    color: #7dff9b;
-
-    background:
-        linear-gradient(
-            rgba(10, 30, 18, 0.95),
-            rgba(2, 10, 6, 0.98)
-        );
-
-    border: 4px solid #31583d;
-
-    border-radius: 8px;
-
-    cursor: pointer;
-
-
-    /* CARCASA */
-
-    box-shadow:
-
-        /* Borde */
-        0 0 0 3px #101b14,
-
-        /* CRT glow */
-        0 0 10px #3cff68,
-        0 0 30px rgba(60, 255, 104, 0.35),
-        0 0 70px rgba(60, 255, 104, 0.15),
-
-        /* Interior */
-        inset 0 0 40px rgba(0, 255, 100, 0.08),
-
-        /* Hardware shadow */
-        15px 18px 0 #020503,
-        20px 25px 30px rgba(0, 0, 0, 0.8);
-
-
-    /* TEXTO CRT */
-
-    text-shadow:
-
-        0 0 4px #7dff9b,
-        0 0 10px #3cff68,
-        0 0 25px #3cff68;
-
-
-    transition: 0.25s ease;
-
-    animation:
-        flicker 5s infinite;
-}
-
-
-/* =========================================================
-   SCANLINES SOBRE EL RELOJ
-========================================================= */
-
-.clock::before {
-
-    content: "";
+body::after {
+    content: "✦     ·       ✧        ·     ✦        ·        ✧";
 
     position: absolute;
 
-    inset: 0;
-
-    background:
-
-        repeating-linear-gradient(
-            0deg,
-            rgba(255,255,255,0.035),
-            rgba(255,255,255,0.035) 1px,
-            transparent 1px,
-            transparent 4px
-        );
-
-    pointer-events: none;
-
-    border-radius: 5px;
-
-    mix-blend-mode: screen;
-}
-
-
-/* =========================================================
-   TEXTO SUPERIOR
-========================================================= */
-
-.clock::after {
-
-    content: "SYSTEM TIME // SECTOR 07 // ONLINE";
-
-    position: absolute;
-
-    top: 8px;
-
+    top: 15%;
     left: 0;
 
     width: 100%;
 
     text-align: center;
 
-    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.55);
 
-    letter-spacing: 3px;
+    font-size: 1.2rem;
 
-    color: #3cff68;
+    letter-spacing: 35px;
 
-    opacity: 0.65;
+    animation: stars 4s ease-in-out infinite alternate;
 
-    text-shadow: none;
+    pointer-events: none;
 }
 
 
-/* =========================================================
-   CRT FLICKER
-========================================================= */
+@keyframes stars {
 
-@keyframes flicker {
+    from {
+        opacity: 0.35;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0.8;
+        transform: translateY(8px);
+    }
+}
+
+
+/* =====================================================
+   RELOJ
+===================================================== */
+
+.clock {
+
+    position: relative;
+
+    font-size: 5rem;
+
+    letter-spacing: 7px;
+
+    padding: 35px 50px;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 120, 220, 0.04)
+        );
+
+    border: 2px solid rgba(255, 180, 235, 0.7);
+
+    border-radius: 18px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(8px);
+
+    /* NEON */
+
+    box-shadow:
+
+        0 0 8px rgba(255, 120, 220, 0.7),
+        0 0 25px rgba(255, 80, 190, 0.35),
+        0 0 60px rgba(90, 120, 255, 0.25),
+
+        inset 0 0 30px rgba(255, 120, 220, 0.08);
+
+    text-shadow:
+
+        0 0 5px #ffffff,
+        0 0 15px #ff7bdc,
+        0 0 35px #ff4fc4;
+
+    transition: 0.4s ease;
+
+    animation: floating 4s ease-in-out infinite;
+}
+
+
+/* =====================================================
+   PEQUEÑA LÍNEA SUPERIOR
+===================================================== */
+
+.clock::before {
+
+    position: absolute;
+
+    top: 8px;
+    left: 0;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 0.55rem;
+
+    letter-spacing: 4px;
+
+    color: #ff9de6;
+
+    text-shadow:
+
+        0 0 5px #ff4fc4;
+
+    opacity: 0.8;
+}
+
+
+/* =====================================================
+   LÍNEA INFERIOR
+===================================================== */
+
+.clock::after {
+
+    content: "「 時間 」";
+
+    position: absolute;
+
+    bottom: 7px;
+    left: 0;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 6px;
+
+    color: #8bb8ff;
+
+    text-shadow:
+
+        0 0 6px #5c8dff;
+
+    opacity: 0.8;
+}
+
+
+/* =====================================================
+   ANIMACIÓN FLOTANTE
+===================================================== */
+
+@keyframes floating {
 
     0%,
-    18%,
-    22%,
-    63%,
-    64%,
-    65%,
     100% {
-        opacity: 1;
+        transform: translateY(0);
     }
 
-    19%,
-    21%,
-    62%,
-    63.5% {
-        opacity: 0.92;
+    50% {
+        transform: translateY(-6px);
     }
 }
 
 
-/* =========================================================
+/* =====================================================
    HOVER
-========================================================= */
+===================================================== */
 
 .clock:hover {
 
     transform:
-        scale(1.04)
-        skewX(-1deg);
+        scale(1.05)
+        rotate(-0.5deg);
 
-    color: #b5ffc5;
-
-    border-color: #7dff9b;
+    border-color: #ffffff;
 
     box-shadow:
 
-        0 0 0 3px #101b14,
+        0 0 10px #ffffff,
+        0 0 25px #ff7bdc,
+        0 0 60px #ff4fc4,
+        0 0 100px rgba(90, 120, 255, 0.4),
 
-        0 0 15px #3cff68,
-        0 0 40px #3cff68,
-        0 0 90px rgba(60, 255, 104, 0.35),
-
-        inset 0 0 50px rgba(0, 255, 100, 0.15),
-
-        15px 18px 0 #020503,
-        20px 25px 35px rgba(0, 0, 0, 0.9);
-
+        inset 0 0 40px rgba(255, 120, 220, 0.15);
 
     text-shadow:
 
-        0 0 5px #b5ffc5,
-        0 0 15px #3cff68,
-        0 0 35px #3cff68;
+        0 0 5px #ffffff,
+        0 0 15px #ffb3ec,
+        0 0 35px #ff4fc4,
+        0 0 60px #9c72ff;
 }
 
 
-/* =========================================================
+/* =====================================================
    BOTÓN
-========================================================= */
+===================================================== */
 
 button {
 
     margin-top: 35px;
 
-    padding: 14px 30px;
+    padding: 13px 30px;
 
-    font-family: 'Share Tech Mono', monospace;
+    font-family: 'Orbitron', sans-serif;
 
-    font-size: 1rem;
+    font-size: 0.9rem;
+
+    font-weight: 600;
 
     letter-spacing: 3px;
 
-    color: #7dff9b;
+    color: #ffffff;
 
-    background: #07110c;
+    background:
+        rgba(255, 100, 200, 0.08);
 
-    border: 2px solid #3cff68;
+    border: 1px solid #ff7bdc;
 
-    border-radius: 3px;
+    border-radius: 30px;
 
     cursor: pointer;
 
-
     box-shadow:
 
-        0 0 5px #3cff68,
-        0 0 15px rgba(60, 255, 104, 0.4),
-
-        inset 0 0 10px rgba(60, 255, 104, 0.08);
-
+        0 0 8px rgba(255, 80, 190, 0.6),
+        0 0 20px rgba(255, 80, 190, 0.2);
 
     text-shadow:
 
-        0 0 5px #3cff68;
+        0 0 5px #ff7bdc;
 
-
-    transition: 0.2s ease;
+    transition: 0.3s ease;
 }
 
 
-/* =========================================================
-   BOTÓN HOVER
-========================================================= */
+/* =====================================================
+   HOVER BOTÓN
+===================================================== */
 
 button:hover {
 
-    color: #020604;
+    color: #21132e;
 
-    background: #3cff68;
+    background: #ff9de6;
+
+    border-color: #ffffff;
+
+    transform: translateY(-3px);
 
     box-shadow:
 
-        0 0 10px #3cff68,
-        0 0 25px #3cff68,
-        0 0 50px rgba(60, 255, 104, 0.5);
+        0 0 10px #ffffff,
+        0 0 25px #ff7bdc,
+        0 0 45px #ff4fc4;
+
+    text-shadow: none;
 }
 
 
-/* =========================================================
-   BOTÓN ACTIVE
-========================================================= */
+/* =====================================================
+   CLICK
+===================================================== */
 
 button:active {
 
-    transform: translateY(3px);
+    transform: translateY(1px);
 
-    box-shadow:
-
-        0 0 5px #3cff68;
 }
